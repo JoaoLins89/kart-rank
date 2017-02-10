@@ -26,6 +26,7 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         controller = new RankController();
+        melhorTempo.setText(controller.melhorTempo());
     }
 
     /**
@@ -42,6 +43,8 @@ public class Home extends javax.swing.JFrame {
         selecionarArquivo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaRank = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        melhorTempo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +82,8 @@ public class Home extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaRank);
 
+        jLabel2.setText("Melhor Tempo:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,14 +91,17 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(pathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(selecionarArquivo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(melhorTempo, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -103,10 +111,12 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(pathArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selecionarArquivo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(selecionarArquivo)
+                    .addComponent(jLabel2)
+                    .addComponent(melhorTempo))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -135,6 +145,8 @@ public class Home extends javax.swing.JFrame {
                     
                     model.addRow(row);
                 }
+                
+                melhorTempo.setText(controller.melhorTempo());
             }
         }
     }//GEN-LAST:event_selecionarArquivoActionPerformed
@@ -176,8 +188,10 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable listaRank;
+    private javax.swing.JLabel melhorTempo;
     private javax.swing.JTextField pathArquivo;
     private javax.swing.JButton selecionarArquivo;
     // End of variables declaration//GEN-END:variables

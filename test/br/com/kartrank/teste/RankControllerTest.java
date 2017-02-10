@@ -49,6 +49,19 @@ public class RankControllerTest {
         assertEquals(6, controller.lerArquivo(new File("C:/ws/kart-rank.txt")).size());
     }
 
+    @Test
+    public void melhorTempoNotNullTest() {
+
+        assertNotNull("4:11.578", controller.melhorTempo());
+    }
+
+    @Test
+    public void melhorTempoTest() {
+
+        controller.lerArquivo(new File("C:/ws/kart-rank.txt"));
+        assertEquals("4:11.578", controller.melhorTempo());
+    }
+
     @After
     public void tearDown() {
     }

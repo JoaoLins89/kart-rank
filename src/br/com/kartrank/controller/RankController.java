@@ -23,9 +23,10 @@ import java.util.Scanner;
  */
 public class RankController {
 
+    private List<Piloto> pilotos = null;
+
     public List<Piloto> lerArquivo(File file) {
 
-        List<Piloto> pilotos = null;
         int posicao = 1;
         boolean linhaInicial = true;
         boolean outraVolta;
@@ -64,7 +65,7 @@ public class RankController {
                 }
             }
             Collections.sort(pilotos);
-            
+
             for (Piloto piloto : pilotos) {
                 piloto.setPosicao(posicao);
                 posicao++;
@@ -74,6 +75,16 @@ public class RankController {
         }
         return pilotos;
 
+    }
+
+    public String melhorTempo() {
+
+        if (pilotos != null && !pilotos.isEmpty()) {
+
+            return pilotos.get(0).getTempoTotalProva();
+        } else {
+            return "0:0.000";
+        }
     }
 
     private Piloto stringInPiloto(String linha) throws Exception {
